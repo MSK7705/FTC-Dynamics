@@ -1,26 +1,40 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/site/Navbar";
+import { Footer } from "@/components/site/Footer";
+import { Hero } from "@/components/site/Hero";
+import { About } from "@/components/site/About";
+import { Products } from "@/components/site/Products";
+import { Industries } from "@/components/site/Industries";
+import { CTA } from "@/components/site/CTA";
+import { WhatsAppFab } from "@/components/site/WhatsApp";
 
 export const Route = createFileRoute("/")({
   component: Index,
+  head: () => ({
+    meta: [
+      { title: "Fluidtec Controls — Hydraulic Presses, Power Packs & Cylinders" },
+      {
+        name: "description",
+        content:
+          "Fluidtec Controls manufactures high-precision hydraulic presses, power packs and cylinders for industrial applications across India since 2002.",
+      },
+    ],
+  }),
 });
 
-// IMPORTANT: Replace this placeholder. For sites with multiple pages (About, Services, Contact, etc.),
-// create separate route files (about.tsx, services.tsx, contact.tsx) — don't put all pages in this file.
-function PlaceholderIndex() {
+function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
+    <div className="min-h-screen bg-background text-foreground">
+      <Navbar />
+      <main>
+        <Hero />
+        <About />
+        <Products />
+        <Industries />
+        <CTA />
+      </main>
+      <Footer />
+      <WhatsAppFab />
     </div>
   );
-}
-
-function Index() {
-  return <PlaceholderIndex />;
 }
