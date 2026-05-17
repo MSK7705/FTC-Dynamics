@@ -23,11 +23,10 @@ export function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${
-        scrolled
+      className={`fixed top-0 inset-x-0 z-50 transition-all duration-500 ${scrolled
           ? "bg-background/85 backdrop-blur-xl border-b border-border/60 py-3"
           : "bg-transparent py-5"
-      }`}
+        }`}
     >
       <div className="container mx-auto px-6 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">

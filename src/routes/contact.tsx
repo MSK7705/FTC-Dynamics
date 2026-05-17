@@ -41,7 +41,7 @@ function ContactPage() {
           >
             {[
               { icon: Phone, label: "Phone", value: "+91 98417 27799", href: "tel:+919841727799" },
-              { icon: Mail, label: "Email", value: "info@fluidteccontrols.com", href: "mailto:info@fluidteccontrols.com" },
+              { icon: Mail, label: "Email", value: "fluidteccontrols@gmail.com", href: "mailto:info@fluidteccontrols.com" },
               { icon: MapPin, label: "Location", value: "Chennai, Tamil Nadu, India" },
             ].map((c) => (
               <a

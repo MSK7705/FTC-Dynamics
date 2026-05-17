@@ -35,7 +35,7 @@ export function Footer() {
           <h4 className="text-sm font-semibold uppercase tracking-widest mb-4">Reach Us</h4>
           <ul className="space-y-3 text-sm text-muted-foreground">
             <li className="flex items-start gap-2"><Phone className="w-4 h-4 mt-0.5 text-primary" /> +91 98417 27799</li>
-            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 text-primary" /> info@fluidteccontrols.com</li>
+            <li className="flex items-start gap-2"><Mail className="w-4 h-4 mt-0.5 text-primary" /> fluidteccontrols@gmail.com</li>
             <li className="flex items-start gap-2"><MapPin className="w-4 h-4 mt-0.5 text-primary" /> Chennai, Tamil Nadu, India</li>
           </ul>
         </div>
