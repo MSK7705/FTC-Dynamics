@@ -1,10 +1,8 @@
 {
   "buildCommand": "npm run build",
-  "outputDirectory": "dist/client",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "env": {
+    "SKIP_ENV_VALIDATION": "1"
+  }
 }
