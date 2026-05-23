@@ -13,6 +13,14 @@ import { Route as ProductsRouteImport } from './routes/products'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProductsIndexRouteImport } from './routes/products/index'
+import { Route as ProductsHydraulicPowerPacksRouteImport } from './routes/products/hydraulic-power-packs'
+import { Route as ProductsHydraulicManifoldBlocksRouteImport } from './routes/products/hydraulic-manifold-blocks'
+import { Route as ProductsHydraulicCylinderRouteImport } from './routes/products/hydraulic-cylinder'
+import { Route as ProductsHydraulicPressIndexRouteImport } from './routes/products/hydraulic-press/index'
+import { Route as ProductsHydraulicPressPillarPressRouteImport } from './routes/products/hydraulic-press/pillar-press'
+import { Route as ProductsHydraulicPressHFramePressRouteImport } from './routes/products/hydraulic-press/h-frame-press'
+import { Route as ProductsHydraulicPressCFramePressRouteImport } from './routes/products/hydraulic-press/c-frame-press'
 
 const ProductsRoute = ProductsRouteImport.update({
   id: '/products',
@@ -34,39 +42,145 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProductsIndexRoute = ProductsIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ProductsRoute,
+} as any)
+const ProductsHydraulicPowerPacksRoute =
+  ProductsHydraulicPowerPacksRouteImport.update({
+    id: '/hydraulic-power-packs',
+    path: '/hydraulic-power-packs',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsHydraulicManifoldBlocksRoute =
+  ProductsHydraulicManifoldBlocksRouteImport.update({
+    id: '/hydraulic-manifold-blocks',
+    path: '/hydraulic-manifold-blocks',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsHydraulicCylinderRoute =
+  ProductsHydraulicCylinderRouteImport.update({
+    id: '/hydraulic-cylinder',
+    path: '/hydraulic-cylinder',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsHydraulicPressIndexRoute =
+  ProductsHydraulicPressIndexRouteImport.update({
+    id: '/hydraulic-press/',
+    path: '/hydraulic-press/',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsHydraulicPressPillarPressRoute =
+  ProductsHydraulicPressPillarPressRouteImport.update({
+    id: '/hydraulic-press/pillar-press',
+    path: '/hydraulic-press/pillar-press',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsHydraulicPressHFramePressRoute =
+  ProductsHydraulicPressHFramePressRouteImport.update({
+    id: '/hydraulic-press/h-frame-press',
+    path: '/hydraulic-press/h-frame-press',
+    getParentRoute: () => ProductsRoute,
+  } as any)
+const ProductsHydraulicPressCFramePressRoute =
+  ProductsHydraulicPressCFramePressRouteImport.update({
+    id: '/hydraulic-press/c-frame-press',
+    path: '/hydraulic-press/c-frame-press',
+    getParentRoute: () => ProductsRoute,
+  } as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/products/hydraulic-cylinder': typeof ProductsHydraulicCylinderRoute
+  '/products/hydraulic-manifold-blocks': typeof ProductsHydraulicManifoldBlocksRoute
+  '/products/hydraulic-power-packs': typeof ProductsHydraulicPowerPacksRoute
+  '/products/': typeof ProductsIndexRoute
+  '/products/hydraulic-press/c-frame-press': typeof ProductsHydraulicPressCFramePressRoute
+  '/products/hydraulic-press/h-frame-press': typeof ProductsHydraulicPressHFramePressRoute
+  '/products/hydraulic-press/pillar-press': typeof ProductsHydraulicPressPillarPressRoute
+  '/products/hydraulic-press/': typeof ProductsHydraulicPressIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/products': typeof ProductsRoute
+  '/products/hydraulic-cylinder': typeof ProductsHydraulicCylinderRoute
+  '/products/hydraulic-manifold-blocks': typeof ProductsHydraulicManifoldBlocksRoute
+  '/products/hydraulic-power-packs': typeof ProductsHydraulicPowerPacksRoute
+  '/products': typeof ProductsIndexRoute
+  '/products/hydraulic-press/c-frame-press': typeof ProductsHydraulicPressCFramePressRoute
+  '/products/hydraulic-press/h-frame-press': typeof ProductsHydraulicPressHFramePressRoute
+  '/products/hydraulic-press/pillar-press': typeof ProductsHydraulicPressPillarPressRoute
+  '/products/hydraulic-press': typeof ProductsHydraulicPressIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/contact': typeof ContactRoute
-  '/products': typeof ProductsRoute
+  '/products': typeof ProductsRouteWithChildren
+  '/products/hydraulic-cylinder': typeof ProductsHydraulicCylinderRoute
+  '/products/hydraulic-manifold-blocks': typeof ProductsHydraulicManifoldBlocksRoute
+  '/products/hydraulic-power-packs': typeof ProductsHydraulicPowerPacksRoute
+  '/products/': typeof ProductsIndexRoute
+  '/products/hydraulic-press/c-frame-press': typeof ProductsHydraulicPressCFramePressRoute
+  '/products/hydraulic-press/h-frame-press': typeof ProductsHydraulicPressHFramePressRoute
+  '/products/hydraulic-press/pillar-press': typeof ProductsHydraulicPressPillarPressRoute
+  '/products/hydraulic-press/': typeof ProductsHydraulicPressIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/contact' | '/products'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/products'
+    | '/products/hydraulic-cylinder'
+    | '/products/hydraulic-manifold-blocks'
+    | '/products/hydraulic-power-packs'
+    | '/products/'
+    | '/products/hydraulic-press/c-frame-press'
+    | '/products/hydraulic-press/h-frame-press'
+    | '/products/hydraulic-press/pillar-press'
+    | '/products/hydraulic-press/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/contact' | '/products'
-  id: '__root__' | '/' | '/about' | '/contact' | '/products'
+  to:
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/products/hydraulic-cylinder'
+    | '/products/hydraulic-manifold-blocks'
+    | '/products/hydraulic-power-packs'
+    | '/products'
+    | '/products/hydraulic-press/c-frame-press'
+    | '/products/hydraulic-press/h-frame-press'
+    | '/products/hydraulic-press/pillar-press'
+    | '/products/hydraulic-press'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/contact'
+    | '/products'
+    | '/products/hydraulic-cylinder'
+    | '/products/hydraulic-manifold-blocks'
+    | '/products/hydraulic-power-packs'
+    | '/products/'
+    | '/products/hydraulic-press/c-frame-press'
+    | '/products/hydraulic-press/h-frame-press'
+    | '/products/hydraulic-press/pillar-press'
+    | '/products/hydraulic-press/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
   ContactRoute: typeof ContactRoute
-  ProductsRoute: typeof ProductsRoute
+  ProductsRoute: typeof ProductsRouteWithChildren
 }
 
 declare module '@tanstack/react-router' {
@@ -99,14 +213,99 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/products/': {
+      id: '/products/'
+      path: '/'
+      fullPath: '/products/'
+      preLoaderRoute: typeof ProductsIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-power-packs': {
+      id: '/products/hydraulic-power-packs'
+      path: '/hydraulic-power-packs'
+      fullPath: '/products/hydraulic-power-packs'
+      preLoaderRoute: typeof ProductsHydraulicPowerPacksRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-manifold-blocks': {
+      id: '/products/hydraulic-manifold-blocks'
+      path: '/hydraulic-manifold-blocks'
+      fullPath: '/products/hydraulic-manifold-blocks'
+      preLoaderRoute: typeof ProductsHydraulicManifoldBlocksRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-cylinder': {
+      id: '/products/hydraulic-cylinder'
+      path: '/hydraulic-cylinder'
+      fullPath: '/products/hydraulic-cylinder'
+      preLoaderRoute: typeof ProductsHydraulicCylinderRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-press/': {
+      id: '/products/hydraulic-press/'
+      path: '/hydraulic-press'
+      fullPath: '/products/hydraulic-press/'
+      preLoaderRoute: typeof ProductsHydraulicPressIndexRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-press/pillar-press': {
+      id: '/products/hydraulic-press/pillar-press'
+      path: '/hydraulic-press/pillar-press'
+      fullPath: '/products/hydraulic-press/pillar-press'
+      preLoaderRoute: typeof ProductsHydraulicPressPillarPressRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-press/h-frame-press': {
+      id: '/products/hydraulic-press/h-frame-press'
+      path: '/hydraulic-press/h-frame-press'
+      fullPath: '/products/hydraulic-press/h-frame-press'
+      preLoaderRoute: typeof ProductsHydraulicPressHFramePressRouteImport
+      parentRoute: typeof ProductsRoute
+    }
+    '/products/hydraulic-press/c-frame-press': {
+      id: '/products/hydraulic-press/c-frame-press'
+      path: '/hydraulic-press/c-frame-press'
+      fullPath: '/products/hydraulic-press/c-frame-press'
+      preLoaderRoute: typeof ProductsHydraulicPressCFramePressRouteImport
+      parentRoute: typeof ProductsRoute
+    }
   }
 }
+
+interface ProductsRouteChildren {
+  ProductsHydraulicCylinderRoute: typeof ProductsHydraulicCylinderRoute
+  ProductsHydraulicManifoldBlocksRoute: typeof ProductsHydraulicManifoldBlocksRoute
+  ProductsHydraulicPowerPacksRoute: typeof ProductsHydraulicPowerPacksRoute
+  ProductsIndexRoute: typeof ProductsIndexRoute
+  ProductsHydraulicPressCFramePressRoute: typeof ProductsHydraulicPressCFramePressRoute
+  ProductsHydraulicPressHFramePressRoute: typeof ProductsHydraulicPressHFramePressRoute
+  ProductsHydraulicPressPillarPressRoute: typeof ProductsHydraulicPressPillarPressRoute
+  ProductsHydraulicPressIndexRoute: typeof ProductsHydraulicPressIndexRoute
+}
+
+const ProductsRouteChildren: ProductsRouteChildren = {
+  ProductsHydraulicCylinderRoute: ProductsHydraulicCylinderRoute,
+  ProductsHydraulicManifoldBlocksRoute: ProductsHydraulicManifoldBlocksRoute,
+  ProductsHydraulicPowerPacksRoute: ProductsHydraulicPowerPacksRoute,
+  ProductsIndexRoute: ProductsIndexRoute,
+  ProductsHydraulicPressCFramePressRoute:
+    ProductsHydraulicPressCFramePressRoute,
+  ProductsHydraulicPressHFramePressRoute:
+    ProductsHydraulicPressHFramePressRoute,
+  ProductsHydraulicPressPillarPressRoute:
+    ProductsHydraulicPressPillarPressRoute,
+  ProductsHydraulicPressIndexRoute: ProductsHydraulicPressIndexRoute,
+}
+
+const ProductsRouteWithChildren = ProductsRoute._addFileChildren(
+  ProductsRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
   ContactRoute: ContactRoute,
-  ProductsRoute: ProductsRoute,
+  ProductsRoute: ProductsRouteWithChildren,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
