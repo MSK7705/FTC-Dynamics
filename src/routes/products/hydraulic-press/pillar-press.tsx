@@ -3,6 +3,15 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsApp";
 import { Crosshair, BoxSelect } from "lucide-react";
+import {
+  Table,
+  TableHeader,
+  TableBody,
+  TableRow,
+  TableHead,
+  TableCell,
+} from "@/components/ui/table";
+import productPillarPressImg from "@/assets/product-pillar-press.jpg";
 
 export const Route = createFileRoute("/products/hydraulic-press/pillar-press")({
   component: PillarPressPage,
@@ -10,6 +19,14 @@ export const Route = createFileRoute("/products/hydraulic-press/pillar-press")({
     meta: [{ title: "4-Pillar Hydraulic Press | Fluidtec Controls" }],
   }),
 });
+
+const specsData = [
+  { capacity: "10", power: "5", tableSize: "400X300", stroke: "200", daylight: "350", workingHeight: "900", approach: "80", pressing: "15", returnSpeed: "120" },
+  { capacity: "20", power: "7.5", tableSize: "500X400", stroke: "300", daylight: "450", workingHeight: "900", approach: "80", pressing: "15", returnSpeed: "120" },
+  { capacity: "50", power: "15", tableSize: "600X500", stroke: "400", daylight: "650", workingHeight: "900", approach: "100", pressing: "15", returnSpeed: "120" },
+  { capacity: "100", power: "20", tableSize: "800X700", stroke: "400", daylight: "750", workingHeight: "900", approach: "120", pressing: "15", returnSpeed: "120" },
+  { capacity: "150", power: "25", tableSize: "800X700", stroke: "400", daylight: "750", workingHeight: "900", approach: "120", pressing: "15", returnSpeed: "120" }
+];
 
 function PillarPressPage() {
   return (
@@ -28,7 +45,7 @@ function PillarPressPage() {
           </p>
         </section>
 
-        <section className="container mx-auto px-6">
+        <section className="container mx-auto px-6 mb-20">
           <div className="bg-gradient-to-br from-card to-background border border-border/50 rounded-3xl overflow-hidden shadow-2xl flex flex-col lg:flex-row">
             <div className="lg:w-1/2 p-10 lg:p-16 flex flex-col justify-center">
               <h2 className="text-3xl md:text-4xl font-bold mb-6">Flawless Parallelism</h2>
@@ -49,8 +66,76 @@ function PillarPressPage() {
                 </div>
               </div>
             </div>
-            <div className="lg:w-1/2 bg-muted/30 border-l border-border/50 flex items-center justify-center min-h-[400px]">
-              <p className="text-muted-foreground text-sm uppercase tracking-widest font-semibold">4-Pillar Press Gallery Placeholder</p>
+            <div className="lg:w-1/2 bg-muted/30 border-l border-border/50 relative overflow-hidden min-h-[400px]">
+              <img 
+                src={productPillarPressImg} 
+                alt="4-Pillar Hydraulic Press" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+              />
+            </div>
+          </div>
+        </section>
+
+        <section className="container mx-auto px-6 mb-24 animate-fade-in">
+          <div className="bg-card border border-border/50 rounded-3xl p-6 md:p-10 shadow-elegant backdrop-blur-sm relative overflow-hidden">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl pointer-events-none" />
+            <div className="relative z-10">
+              <h2 className="text-3xl font-bold mb-2 text-foreground">Technical Specifications</h2>
+              <p className="text-muted-foreground mb-8 max-w-xl">
+                Comprehensive performance metrics, dimensions, and speed values for the PTPP series 4-Pillar hydraulic presses.
+              </p>
+              <div className="overflow-x-auto rounded-xl border border-border/40 bg-background/50">
+                <Table>
+                  <TableHeader className="bg-muted/40">
+                    <TableRow className="border-b border-border/50 hover:bg-transparent">
+                      <TableHead colSpan={3} className="font-bold text-center text-primary border-r border-border/10 py-3 uppercase tracking-wider text-xs md:text-sm">
+                        Pillar Press – PTPP
+                      </TableHead>
+                      <TableHead colSpan={3} className="font-semibold text-center border-r border-border/10 py-3"></TableHead>
+                      <TableHead colSpan={3} className="font-bold text-center text-primary py-3 uppercase tracking-wider text-xs md:text-sm">
+                        Speeds:
+                      </TableHead>
+                    </TableRow>
+                    <TableRow className="border-b border-border/50 hover:bg-transparent">
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">CAPACITY</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">POWER</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">TABLE SIZE</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">STROKE</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">DAYLIGHT</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">WORKING</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">APPROACH</TableHead>
+                      <TableHead className="font-bold text-foreground text-center border-r border-border/10 py-2.5 text-xs md:text-sm">PRESSING</TableHead>
+                      <TableHead className="font-bold text-foreground text-center py-2.5 text-xs md:text-sm">RETURN</TableHead>
+                    </TableRow>
+                    <TableRow className="border-b border-border/50 hover:bg-transparent text-[10px] md:text-xs uppercase tracking-wider text-muted-foreground bg-muted/10">
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">TON</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">HP</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">MM</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">MM</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">MM</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">HEIGHT</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">MM/Sec</TableHead>
+                      <TableHead className="text-center border-r border-border/10 py-2 font-medium">MM/Sec</TableHead>
+                      <TableHead className="text-center py-2 font-medium">MM/Sec</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    {specsData.map((row, index) => (
+                      <TableRow key={index} className="hover:bg-primary/5 transition-colors border-b border-border/20">
+                        <TableCell className="font-bold text-center border-r border-border/10 py-3 text-xs md:text-sm text-primary">{row.capacity}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm text-muted-foreground">{row.power}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm font-mono text-foreground/90">{row.tableSize}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm text-muted-foreground">{row.stroke}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm text-muted-foreground">{row.daylight}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm font-medium text-foreground">{row.workingHeight}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm text-primary/80 font-medium">{row.approach}</TableCell>
+                        <TableCell className="text-center border-r border-border/10 py-3 text-xs md:text-sm text-primary font-bold">{row.pressing}</TableCell>
+                        <TableCell className="text-center py-3 text-xs md:text-sm text-primary/80 font-medium">{row.returnSpeed}</TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </div>
             </div>
           </div>
         </section>

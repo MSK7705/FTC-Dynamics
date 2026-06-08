@@ -3,6 +3,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { WhatsAppFab } from "@/components/site/WhatsApp";
 import { BatteryCharging, Droplet, ThermometerSnowflake } from "lucide-react";
+import powerPackShowcaseImg from "@/assets/product-power-pack-showcase.jpg";
 
 export const Route = createFileRoute("/products/hydraulic-power-packs")({
   component: HydraulicPowerPacksPage,
@@ -41,8 +42,12 @@ function HydraulicPowerPacksPage() {
                 <span className="px-4 py-2 bg-muted/50 rounded-full text-sm font-medium border border-border/50">Energy Efficient</span>
               </div>
             </div>
-            <div className="col-span-1 bg-muted/30 border border-border/50 rounded-3xl flex items-center justify-center min-h-[300px]">
-               <p className="text-muted-foreground text-sm uppercase tracking-widest font-semibold px-6 text-center">HPU System Image Placeholder</p>
+            <div className="col-span-1 bg-muted/30 border border-border/50 rounded-3xl relative overflow-hidden min-h-[300px]">
+              <img 
+                src={powerPackShowcaseImg} 
+                alt="Hydraulic Power Pack HPU System" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-500" 
+              />
             </div>
           </div>
         </section>
