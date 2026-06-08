@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
+import { MapLocation } from "@/components/site/MapLocation";
 import { WhatsAppFab } from "@/components/site/WhatsApp";
 import { motion } from "framer-motion";
 import { Mail, MapPin, Phone, Send } from "lucide-react";
@@ -95,6 +96,7 @@ function ContactPage() {
             )}
           </motion.form>
         </div>
+        <MapLocation />
       </main>
       <Footer />
       <WhatsAppFab />

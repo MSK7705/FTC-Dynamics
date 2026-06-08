@@ -3,6 +3,7 @@ import { Navbar } from "@/components/site/Navbar";
 import { Footer } from "@/components/site/Footer";
 import { About } from "@/components/site/About";
 import { CTA } from "@/components/site/CTA";
+import { MapLocation } from "@/components/site/MapLocation";
 import { WhatsAppFab } from "@/components/site/WhatsApp";
 
 export const Route = createFileRoute("/about")({
@@ -30,6 +31,7 @@ function AboutPage() {
         </section>
         <About />
         <CTA />
+        <MapLocation />
       </main>
       <Footer />
       <WhatsAppFab />
