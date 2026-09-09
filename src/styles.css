@@ -85,9 +85,18 @@
   --input: oklch(0.27 0.018 25);
   --ring: oklch(0.62 0.22 27);
 
-  --gradient-hero: linear-gradient(135deg, oklch(0.16 0.012 25) 0%, oklch(0.22 0.06 25) 60%, oklch(0.35 0.18 27) 100%);
+  --gradient-hero: linear-gradient(
+    135deg,
+    oklch(0.16 0.012 25) 0%,
+    oklch(0.22 0.06 25) 60%,
+    oklch(0.35 0.18 27) 100%
+  );
   --gradient-primary: linear-gradient(135deg, oklch(0.62 0.22 27), oklch(0.7 0.24 30));
-  --gradient-overlay: linear-gradient(180deg, oklch(0.12 0.012 25 / 0.4), oklch(0.12 0.012 25 / 0.95));
+  --gradient-overlay: linear-gradient(
+    180deg,
+    oklch(0.12 0.012 25 / 0.4),
+    oklch(0.12 0.012 25 / 0.95)
+  );
 
   --shadow-glow: 0 10px 40px -10px oklch(0.62 0.22 27 / 0.5);
   --shadow-elegant: 0 20px 60px -20px oklch(0 0 0 / 0.6);
@@ -148,17 +157,50 @@
 @layer base {
   * {
     border-color: var(--color-border);
+    scrollbar-width: thin;
+    scrollbar-color: #1f1f1f #000000;
+  }
+
+  /* Custom Black Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #18181b;
+    border-radius: 9999px;
+    border: 1px solid #27272a;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #27272a;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: #000000;
   }
 
   body {
     background-color: var(--color-background);
     color: var(--color-foreground);
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family:
+      "Inter",
+      system-ui,
+      -apple-system,
+      sans-serif;
     -webkit-font-smoothing: antialiased;
   }
 
-  h1, h2, h3, h4 {
-    font-family: 'Space Grotesk', 'Inter', sans-serif;
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: "Space Grotesk", "Inter", sans-serif;
     letter-spacing: -0.02em;
   }
 }
@@ -170,11 +212,21 @@
     background-clip: text;
     color: transparent;
   }
-  .bg-gradient-hero { background: var(--gradient-hero); }
-  .bg-gradient-primary { background: var(--gradient-primary); }
-  .shadow-glow { box-shadow: var(--shadow-glow); }
-  .shadow-elegant { box-shadow: var(--shadow-elegant); }
-  .shadow-card { box-shadow: var(--shadow-card); }
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-elegant {
+    box-shadow: var(--shadow-elegant);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
 
   .grid-bg {
     background-image:
@@ -185,14 +237,25 @@
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-12px); }
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
 }
-.animate-float { animation: float-slow 6s ease-in-out infinite; }
+.animate-float {
+  animation: float-slow 6s ease-in-out infinite;
+}
 
 @keyframes shine {
-  0% { background-position: -200% 0; }
-  100% { background-position: 200% 0; }
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
+  }
 }
 .animate-shine {
   background: linear-gradient(90deg, transparent, oklch(1 0 0 / 0.15), transparent);
